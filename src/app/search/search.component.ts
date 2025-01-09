@@ -9,7 +9,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [SelectedAnimalComponent, ReactiveFormsModule],
   templateUrl: './search.component.html',
-  styleUrl: './search.component.css',
   providers: [HttpClient],
 })
 export class SearchComponent {

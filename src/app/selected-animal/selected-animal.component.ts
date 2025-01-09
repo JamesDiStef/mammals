@@ -6,7 +6,6 @@ import { Animal } from '../search/search.service';
   standalone: true,
   imports: [],
   templateUrl: './selected-animal.component.html',
-  styleUrl: './selected-animal.component.css',
 })
 export class SelectedAnimalComponent {
   @Input() animal!: Animal | undefined;
