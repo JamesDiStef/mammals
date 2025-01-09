@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Animal } from '../search/search.service';
+import { Animal } from '../../services/search.service';
 
 @Component({
   selector: 'selected-animal',

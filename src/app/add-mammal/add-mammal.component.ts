@@ -6,6 +6,7 @@ import {
   FormControl,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { AddMammalService } from '../services/add-mammal.service';
 
 @Component({
   selector: 'app-add-mammal',
@@ -17,23 +18,27 @@ export class AddMammalComponent {
   speciesForm = new FormGroup({
     species: new FormControl(''),
     funFact: new FormControl(''),
+    wiki: new FormControl(''),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private addMammalService: AddMammalService
+  ) {}
 
   ngOnInit() {
-    // Initialize the form group with form controls
     this.speciesForm = this.fb.group({
-      species: ['', [Validators.required, Validators.email]], // Email validation for "species"
-      funFact: ['', Validators.required], // Required field for fun fact
+      species: ['', Validators.required],
+      funFact: ['', Validators.required],
+      wiki: ['', Validators.required],
     });
   }
 
   onSubmit() {
-    if (this.speciesForm.valid) {
-      console.log('Form submitted:', this.speciesForm.value);
-    } else {
-      console.log('Form is not valid', this.speciesForm.errors);
-    }
+    this.addMammalService.addMammal(
+      '' + this.speciesForm.get('species')?.value,
+      '' + this.speciesForm.get('funFact')?.value,
+      '' + this.speciesForm.get('wiki')?.value
+    );
   }
 }
