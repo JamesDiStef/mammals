@@ -23,6 +23,7 @@ export class SearchComponent {
   url = 'http://localhost:3000/animals';
 
   searchService: SearchService = inject(SearchService);
+  animalNotFound: boolean = false;
 
   constructor() {}
 
@@ -30,7 +31,8 @@ export class SearchComponent {
     await this.searchService
       .getAnimalBySpecies('' + this.applyForm.get('species')?.value)
       .then((animal: Animal[] | undefined) => {
-        if (animal) this.result = animal;
+        if (animal && animal.length > 0) this.result = animal;
+        else this.animalNotFound = true;
         this.isSelected = true;
       });
     console.log(this.result);
