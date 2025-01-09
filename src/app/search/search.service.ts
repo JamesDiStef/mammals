@@ -12,8 +12,9 @@ export interface Animal {
   providedIn: 'root',
 })
 export class SearchService {
-  private apiUrl = 'http://localhost:3000/animals'; // replace with actual API URL
-
+  // private apiUrl = 'http://localhost:3000/animals';
+  private apiUrl =
+    'https://us-central1-xenon-heading-433720-j4.cloudfunctions.net/api/animals';
   constructor(private http: HttpClient) {}
 
   async getAllAnimals(): Promise<Animal[]> {
