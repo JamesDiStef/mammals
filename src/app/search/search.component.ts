@@ -31,13 +31,11 @@ export class SearchComponent {
     await this.searchService
       .getAnimalBySpecies('' + this.applyForm.get('species')?.value)
       .then((animal: Animal[] | undefined) => {
-        if (animal && animal.length > 0) this.result = animal;
-        else this.animalNotFound = true;
+        if (animal && animal.length > 0) {
+          this.result = animal;
+          this.animalNotFound = false;
+        } else this.animalNotFound = true;
         this.isSelected = true;
       });
-    console.log(this.result);
-    if (this.result) console.log(this.result[0].description);
-
-    this.applyForm.get('species')?.value;
   }
 }
