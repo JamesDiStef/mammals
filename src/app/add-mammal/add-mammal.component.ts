@@ -20,6 +20,7 @@ export class AddMammalComponent {
     funFact: new FormControl(''),
     wiki: new FormControl(''),
   });
+  isSubmitted: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -35,10 +36,15 @@ export class AddMammalComponent {
   }
 
   onSubmit() {
+    this.isSubmitted = true;
     this.addMammalService.addMammal(
       '' + this.speciesForm.get('species')?.value,
       '' + this.speciesForm.get('funFact')?.value,
       '' + this.speciesForm.get('wiki')?.value
     );
+  }
+
+  addAnother() {
+    this.isSubmitted = false;
   }
 }

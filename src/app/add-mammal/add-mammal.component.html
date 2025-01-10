@@ -3,6 +3,7 @@
     <div
       class="card w-full sm:w-[100vw] bg-base-100 max-w-sm shrink-0 shadow-2xl"
     >
+      @if(!isSubmitted){
       <form [formGroup]="speciesForm" (ngSubmit)="onSubmit()" class="card-body">
         <div class="form-control">
           <label class="label">
@@ -68,6 +69,13 @@
           </button>
         </div>
       </form>
+      } @if(isSubmitted){
+      <button class="btn btn-primary my-6" (click)="addAnother()">
+        Submit another
+      </button>
+      <a class="btn btn-primary my-6" href="/">Back to Home</a>
+
+      }
     </div>
   </div>
 </div>
