@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { SelectedAnimalComponent } from './selected-animal/selected-animal.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Animal, SearchService } from '../services/search.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-search',
