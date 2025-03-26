@@ -9,10 +9,9 @@ import {
 import { AddMammalService } from '../services/add-mammal.service';
 
 @Component({
-  selector: 'app-add-mammal',
-  standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './add-mammal.component.html',
+    selector: 'app-add-mammal',
+    imports: [ReactiveFormsModule],
+    templateUrl: './add-mammal.component.html'
 })
 export class AddMammalComponent {
   speciesForm = new FormGroup({

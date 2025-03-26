@@ -2,10 +2,9 @@ import { Component, Input } from '@angular/core';
 import { Animal } from '../../services/search.service';
 
 @Component({
-  selector: 'selected-animal',
-  standalone: true,
-  imports: [],
-  templateUrl: './selected-animal.component.html',
+    selector: 'selected-animal',
+    imports: [],
+    templateUrl: './selected-animal.component.html'
 })
 export class SelectedAnimalComponent {
   @Input() animal!: Animal | undefined;

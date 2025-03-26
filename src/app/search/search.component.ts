@@ -5,11 +5,10 @@ import { Animal, SearchService } from '../services/search.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-search',
-  standalone: true,
-  imports: [SelectedAnimalComponent, ReactiveFormsModule],
-  templateUrl: './search.component.html',
-  providers: [HttpClient],
+    selector: 'app-search',
+    imports: [SelectedAnimalComponent, ReactiveFormsModule],
+    templateUrl: './search.component.html',
+    providers: [HttpClient]
 })
 export class SearchComponent {
   isSelected = false;
