@@ -14,7 +14,7 @@ export interface Animal {
 export class SearchService {
   // private apiUrl = 'http://localhost:3000/animals';
   private apiUrl =
-    'https://us-central1-xenon-heading-433720-j4.cloudfunctions.net/api/animals';
+    'https://animals-service-96f362179112.herokuapp.com/api/v1/mammals';
   constructor(private http: HttpClient) {}
 
   async getAllAnimals(): Promise<Animal[]> {
