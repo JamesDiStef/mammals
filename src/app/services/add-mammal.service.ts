@@ -7,9 +7,9 @@ import { stringify } from 'querystring';
   providedIn: 'root',
 })
 export class AddMammalService {
-  // private apiUrl = 'http://localhost:8080/api/v1/mammals/';
+  // private apiUrl = 'http://localhost:8080/api/v1/mammals/mammal';
   private apiUrl =
-    'https://animals-service-96f362179112.herokuapp.com/api/v1/mammals';
+    'https://animals-service-96f362179112.herokuapp.com/api/v1/mammals/mammal';
 
   constructor(private http: HttpClient) {}
 
