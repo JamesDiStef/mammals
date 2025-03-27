@@ -5,10 +5,10 @@ import { Animal, SearchService } from '../services/search.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-    selector: 'app-search',
-    imports: [SelectedAnimalComponent, ReactiveFormsModule],
-    templateUrl: './search.component.html',
-    providers: [HttpClient]
+  selector: 'app-search',
+  imports: [SelectedAnimalComponent, ReactiveFormsModule],
+  templateUrl: './search.component.html',
+  providers: [HttpClient],
 })
 export class SearchComponent {
   isSelected = false;
@@ -17,7 +17,7 @@ export class SearchComponent {
   });
 
   query: string = 'abb';
-  result!: Animal[];
+  result!: Animal | undefined;
 
   url = 'http://localhost:3000/animals';
 
@@ -27,14 +27,13 @@ export class SearchComponent {
   constructor() {}
 
   async go() {
-    await this.searchService
-      .getAnimalBySpecies('' + this.applyForm.get('species')?.value)
-      .then((animal: Animal[] | undefined) => {
-        if (animal && animal.length > 0) {
-          this.result = animal;
-          this.animalNotFound = false;
-        } else this.animalNotFound = true;
-        this.isSelected = true;
-      });
+    let animal = await this.searchService.getAnimalBySpecies(
+      '' + this.applyForm.get('species')?.value
+    );
+    if (animal?.species) {
+      this.result = animal;
+      this.animalNotFound = false;
+    } else this.animalNotFound = true;
+    this.isSelected = true;
   }
 }

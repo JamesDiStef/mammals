@@ -17,12 +17,12 @@ export class SearchService {
     'https://animals-service-96f362179112.herokuapp.com/api/v1/mammals';
   constructor(private http: HttpClient) {}
 
-  async getAllAnimals(): Promise<Animal[]> {
+  async getAllAnimals(): Promise<Animal> {
     let data = await fetch(this.apiUrl);
     return (await data.json()) ?? [];
   }
 
-  async getAnimalBySpecies(species: string): Promise<Animal[] | undefined> {
+  async getAnimalBySpecies(species: string): Promise<Animal | undefined> {
     let data = await fetch(this.apiUrl + '/' + species);
     return (await data.json()) ?? {};
   }
