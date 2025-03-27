@@ -7,8 +7,10 @@ import { stringify } from 'querystring';
   providedIn: 'root',
 })
 export class AddMammalService {
+  // private apiUrl = 'http://localhost:8080/api/v1/mammals/';
   private apiUrl =
-    'https://us-central1-xenon-heading-433720-j4.cloudfunctions.net/api/animals';
+    'https://animals-service-96f362179112.herokuapp.com/api/v1/mammals';
+
   constructor(private http: HttpClient) {}
 
   async addMammal(species: string, description: string, wiki: string) {

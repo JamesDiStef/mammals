@@ -12,9 +12,10 @@ export interface Animal {
   providedIn: 'root',
 })
 export class SearchService {
-  // private apiUrl = 'http://localhost:3000/animals';
+  // private apiUrl = 'http://localhost:8080/api/v1/mammals/';
   private apiUrl =
     'https://animals-service-96f362179112.herokuapp.com/api/v1/mammals';
+
   constructor(private http: HttpClient) {}
 
   async getAllAnimals(): Promise<Animal> {
