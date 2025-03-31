@@ -62,8 +62,8 @@
   </div>
 </div>
 
-} @else{
-<div class="place-self-center place-">
+} @if(isSelected && !animalNotFound) {
+<div class="place-self-center">
   <selected-animal [animal]="result" />
 </div>
 }

@@ -1,10 +1,21 @@
-<div class="card bg-base-100 m-20 w-4/5 h-2/5 shadow-xl">
-  <div class="card-body">
-    <h2 class="card-title">{{ animal?.species }}</h2>
+<div
+  class="card place-self-center mt-12 sm:mt-20 w-full md:min-w-80 max-w-3xl bg-gradient-to-r from-sky-200 to-sky-300 rounded-xl shadow-lg text-gray-700"
+>
+  <div class="card-body w-full">
+    <div class="flex justify-between">
+      <h2 class="card-title">{{ animal?.species }}</h2>
+      <button class="text-xl" (click)="toggleMenu()">
+        <fa-icon [icon]="faEdit"></fa-icon>
+      </button>
+    </div>
+
     <p>{{ animal?.description }}</p>
     @if(animal){
-    <div class="card-actions justify-center">
-      <a href="{{ animal.wiki }}" target="_blank" class="btn btn-primary"
+    <div class="justify-center mx-auto">
+      <a
+        href="{{ animal.wiki }}"
+        target="_blank"
+        class="btn btn-primary justify-center rounded-md text-white font-semibold"
         >Read More</a
       >
     </div>
