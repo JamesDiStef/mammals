@@ -5,8 +5,8 @@
   <a class="btn btn-ghost text-xl" href="/dev">About The Author</a>
 </div>
 
-<button class="flex md:hidden p-4" (click)="toggleMenu()">
-  <i class="fas fa-bars text-xl"></i>
+<button class="flex md:hidden p-4 text-xl" (click)="toggleMenu()">
+  <fa-icon [icon]="faBars"></fa-icon>
 </button>
 
 @if(mobileNavOpen){

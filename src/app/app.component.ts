@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FontAwesomeModule],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
   title = 'animals';
   mobileNavOpen = false;
+  faBars = faBars;
 
   toggleMenu() {
     console.log('yo yo');
