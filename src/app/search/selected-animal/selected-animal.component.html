@@ -2,10 +2,12 @@
   <div class="card-body">
     <h2 class="card-title">{{ animal?.species }}</h2>
     <p>{{ animal?.description }}</p>
+    @if(animal){
     <div class="card-actions justify-center">
-      <a href="{{ animal?.wiki }}" target="_blank" class="btn btn-primary"
+      <a href="{{ animal.wiki }}" target="_blank" class="btn btn-primary"
         >Read More</a
       >
     </div>
+    }
   </div>
 </div>
