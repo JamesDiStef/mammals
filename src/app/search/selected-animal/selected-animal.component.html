@@ -4,13 +4,24 @@
   <div class="card-body w-full">
     <div class="flex justify-between">
       <h2 class="card-title">{{ animal?.species }}</h2>
-      <button class="text-xl" (click)="toggleMenu()">
+      <button class="text-xl" (click)="toggleDescription()">
         <fa-icon [icon]="faEdit"></fa-icon>
       </button>
     </div>
 
+    @if(!isEditing){
     <p>{{ animal?.description }}</p>
-    @if(animal){
+    } @if(isEditing){
+    <form class="grow" [formGroup]="updateAnimalForm">
+      <textarea
+        id="species"
+        class="w-full h-36 grow bg-white"
+        placeholder="Enter a new description"
+        formControlName="newDescription"
+        rows="6"
+      ></textarea>
+    </form>
+    } @if(animal){
     <div class="justify-center mx-auto">
       <a
         href="{{ animal.wiki }}"

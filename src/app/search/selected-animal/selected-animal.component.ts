@@ -1,23 +1,39 @@
-import { Component, Input } from '@angular/core';
-import { Animal } from '../../services/search.service';
+import { Component, inject, Input } from '@angular/core';
+import { Animal, SearchService } from '../../services/search.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { AddMammalService } from '../../services/add-mammal.service';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'selected-animal',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, ReactiveFormsModule],
   templateUrl: './selected-animal.component.html',
 })
 export class SelectedAnimalComponent {
   faEdit = faEdit;
-  toggleMenu() {
-    console.log('editing');
-  }
   @Input() animal!: Animal | undefined;
+  isEditing = false;
 
-  constructor() {}
+  addMammalService: AddMammalService = inject(AddMammalService);
+  searchService: SearchService = inject(SearchService);
 
-  ngOnInit() {
-    if (this.animal) console.log(this.animal.description);
+  updateAnimalForm = new FormGroup({
+    newDescription: new FormControl(''),
+  });
+
+  async toggleDescription() {
+    this.isEditing = !this.isEditing;
+    if (!this.isEditing) this.updateDescription();
+    this.animal!.description =
+      '' + this.updateAnimalForm.get('newDescription')?.value;
+  }
+
+  async updateDescription() {
+    console.log(this.updateAnimalForm.get('newDescription')?.value);
+    await this.addMammalService.updateMammalDescription(
+      '' + this.animal?.species,
+      '' + this.updateAnimalForm.get('newDescription')?.value
+    );
   }
 }
